@@ -19,26 +19,26 @@
     <Filter Include="Source Files\testing">
       <UniqueIdentifier>{fb3f05aa-84d1-4053-87cc-c63132398793}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\steps">
+      <UniqueIdentifier>{188f5795-7bfa-4523-9730-551762d9443e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="linked_list.c">
+    <ClCompile Include="accumulator.c">
       <Filter>Source Files\util</Filter>
     </ClCompile>
-    <ClCompile Include="string_hash_map.c">
-      <Filter>Source Files\util</Filter>
-    </ClCompile>
-    <ClCompile Include="test_linked_list.c">
-      <Filter>Source Files\testing</Filter>
+    <ClCompile Include="lexer.c">
+      <Filter>Source Files\steps</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="linked_list.h">
+    <ClInclude Include="accumulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="string_hash_map.h">
+    <ClInclude Include="lexer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

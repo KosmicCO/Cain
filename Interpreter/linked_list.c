@@ -1,4 +1,6 @@
 #include "linked_list.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 // Helper pre-declarations
 
@@ -6,6 +8,13 @@ void * removeFirst(linked_list * ll);
 void * freeNext(node * prev);
 
 // linked_list mutation functions;
+
+linked_list * newLinkedList() {
+	linked_list * ll = malloc(sizeof(linked_list));
+	ll->last = 0;
+	ll->size = 0;
+	return ll;
+}
 
 void * get(linked_list * ll, int index) {
 	node * cur = ll->last->next;
@@ -32,7 +41,7 @@ void append(linked_list * ll, void * item) {
 	ll->size++;
 }
 
-void * remove(linked_list * ll, int index) {
+void * removeIndex(linked_list * ll, int index) {
 	if (index < 0 || !ll->size) return 0;
 	ll->size--;
 	if (ll->size == 1) {
