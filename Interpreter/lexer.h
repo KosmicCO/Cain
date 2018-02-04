@@ -2,22 +2,22 @@
 #include "accumulator.h"
 
 enum lexer_tokenTypes {id, op, num, nl, gp, kw};
-static const char * tokenTypesNames[6] = {"identifier", "operation", "number", "newline", "grouping", "keyword"};
-static const int tokenTypesLength[6] = {10, 9, 6, 7, 8, 7};
+static const char * tokenTypesNames[6] = { "identifier", "operation", "number", "newline", "grouping", "keyword" };
+static const char * tokenTypesShort[6] = { "id", "op", "nm", "nl", "gp", "kw" };
 static const int longestNameLength = 10;
 
-typedef struct token {
+typedef struct lexer_token {
 	int type;
 	char * toke;
-} lexer_token;
+} token;
 
 typedef struct lexer {
-	char * fileName;
-	char ** packagePath;
+	char * include;
 	char header;         // is body if false
-	token ** tokens;     // of type token
+	token ** tokens;
+	int size;            // size of tokens array
 } lexer;
 
-lexer * lexer_lex(char * file, char ** path, char * body);
-char * lexer_toString(lexer * lx);
-char * lexer_token_toString(token * tk);
+lexer * lexer_lex(char * file, char * body);
+char * lexer_toString(const lexer * lx);
+char * lexer_token_toString(const token * tk, int shorten);

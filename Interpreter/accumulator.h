@@ -13,5 +13,5 @@ typedef struct accu {
 } accu;
 
 accu * accu_new();
-void accu_add(accu * ac, void * o);
+void accu_add(accu * ac, const void * o);
 void ** accu_clear(accu * ac);
