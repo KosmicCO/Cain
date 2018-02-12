@@ -1,2 +1,2 @@
 # Cain
-An interpreter intended to corrupt programmers.
+A language intended to corrupt programmers.
