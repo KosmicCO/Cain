@@ -12,10 +12,36 @@ char * intToString(int x) {
 	return str;
 }
 
+int searchKeywords(const char * str) {
+	return binarySearchKeywords(str, 0, NUM_KEYWORDS - 1);
+}
+
+int binarySearchKeywords(const char * str, int l, int h) {
+	if (h >= l) {
+		int mid = l + (h - l) / 2;
+		int comp = strcmp(str, KEYWORDS[mid]);
+		if (comp == 0)
+			return mid;
+
+		if (comp > 0)
+			return binarySearchKeywords(str, l, mid - 1);
+
+		return binarySearchKeywords(str, mid + 1, h);
+	}
+	return -1;
+}
+
 // Lexer functions
 
-lexer * lexer_lex(const char * file, const char * body) {
+void lexer_initialize() {
+	qsort(KEYWORDS, NUM_KEYWORDS, sizeof(char *), strcmp);
+	initialized = 1;
+}
 
+lexer * lexer_lex(const char * file, const char * body) {
+	if (!initialized) {
+		return 0;
+	}
 }
 
 char * lexer_toString(const lexer * lx) {
@@ -37,10 +63,10 @@ char * lexer_toString(const lexer * lx) {
 char * lexer_token_toString(const token * tk, int shorten) {
 	char * str = "";
 	if (shorten) {
-		strcat(str, tokenTypesShort[tk->type]);
+		strcat(str, TOKEN_TYPES_SHORT[tk->type]);
 	}
 	else {
-		strcat(str, tokenTypesNames[tk->type]);
+		strcat(str, TOKEN_TYPES_NAMES[tk->type]);
 	}
 	strcat(str, ": ");
 	strcat(str, tk->toke);
