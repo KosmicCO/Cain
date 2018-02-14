@@ -146,11 +146,13 @@
   <ItemGroup>
     <ClCompile Include="accumulator.c" />
     <ClCompile Include="lexer.c" />
+    <ClCompile Include="lexer_info.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="accumulator.h" />
     <ClInclude Include="lexer.h" />
+    <ClInclude Include="lexer_info.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

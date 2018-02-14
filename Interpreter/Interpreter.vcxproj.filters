@@ -33,12 +33,18 @@
     <ClCompile Include="lexer.c">
       <Filter>Source Files\steps</Filter>
     </ClCompile>
+    <ClCompile Include="lexer_info.c">
+      <Filter>Source Files\steps</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="accumulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lexer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lexer_info.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,6 +2,9 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "accumulator.h"
+
+const int TOKEN_BUFFER_SIZE = 256;
 
 // Define helpers
 
@@ -12,36 +15,23 @@ char * intToString(int x) {
 	return str;
 }
 
-int searchKeywords(const char * str) {
-	return binarySearchKeywords(str, 0, NUM_KEYWORDS - 1);
-}
-
-int binarySearchKeywords(const char * str, int l, int h) {
-	if (h >= l) {
-		int mid = l + (h - l) / 2;
-		int comp = strcmp(str, KEYWORDS[mid]);
-		if (comp == 0)
-			return mid;
-
-		if (comp > 0)
-			return binarySearchKeywords(str, l, mid - 1);
-
-		return binarySearchKeywords(str, mid + 1, h);
-	}
-	return -1;
-}
-
 // Lexer functions
 
-void lexer_initialize() {
-	qsort(KEYWORDS, NUM_KEYWORDS, sizeof(char *), strcmp);
-	initialized = 1;
-}
-
-lexer * lexer_lex(const char * file, const char * body) {
+lexer * lexer_lex(const char * file, int isHeader, const char * body) {
 	if (!initialized) {
 		return 0;
 	}
+
+	lexer * lex = malloc(sizeof(lexer));
+	int fileLen = strlen(file);
+	lex->include = calloc(fileLen, sizeof(char));
+	strcpy(lex->include, file);
+	lex->header = isHeader;
+
+	accu * tokens = malloc(sizeof(tokens));
+	char * buffer = calloc(TOKEN_BUFFER_SIZE, sizeof(char));
+
+	// TODO: write body character iterator and helper functions
 }
 
 char * lexer_toString(const lexer * lx) {
