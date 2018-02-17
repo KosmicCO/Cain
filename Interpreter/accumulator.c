@@ -4,6 +4,14 @@
 
 // Define helper functions
 
+void * freeNext(node * prev) {
+	void * ret = prev->next->item;
+	node * aft = prev->next->next;
+	free(prev->next);
+	prev->next = aft;
+	return ret;
+}
+
 void * removeFirst(accu * ac) {
 	if (!ac->size) {
 		return 0;
@@ -16,14 +24,6 @@ void * removeFirst(accu * ac) {
 		return ret;
 	}
 	return freeNext(ac->last);
-}
-
-void * freeNext(node * prev) {
-	void * ret = prev->next->item;
-	node * aft = prev->next->next;
-	free(prev->next);
-	prev->next = aft;
-	return ret;
 }
 
 // Accumulator functions

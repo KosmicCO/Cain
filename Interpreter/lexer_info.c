@@ -3,10 +3,10 @@
 
 // Define helpers
 
-int binarySearchKeywords(const char * str, int l, int h) {
+int binarySearch(const char * str, char ** list, int l, int h) {
 	if (h >= l) {
 		int mid = l + (h - l) / 2;
-		int comp = strcmp(str, KEYWORDS[mid]);
+		int comp = strcmp(str, list[mid]);
 		if (comp == 0)
 			return mid;
 
@@ -26,6 +26,6 @@ void lexer_info_initialize() {
 }
 
 int lexer_info_searchKeywords(const char * str) {
-	return binarySearchKeywords(str, 0, NUM_KEYWORDS - 1);
+	return binarySearch(str, 0, KEYWORDS, NUM_KEYWORDS - 1);
 }
 

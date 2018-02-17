@@ -145,6 +145,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="accumulator.c" />
+    <ClCompile Include="accumulator_test.c" />
     <ClCompile Include="lexer.c" />
     <ClCompile Include="lexer_info.c" />
     <ClCompile Include="main.c" />

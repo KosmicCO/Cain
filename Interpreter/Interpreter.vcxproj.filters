@@ -36,6 +36,9 @@
     <ClCompile Include="lexer_info.c">
       <Filter>Source Files\steps</Filter>
     </ClCompile>
+    <ClCompile Include="accumulator_test.c">
+      <Filter>Source Files\testing</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="accumulator.h">
